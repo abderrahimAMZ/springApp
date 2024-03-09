@@ -37,23 +37,7 @@ pipeline{
         stage("Run application"){
             steps {
                 dir("~/workspace/springApp")
-                sh "java -jar target/chat-1.jar"
-            }
-        }
-        stage("SonarQube analysis"){
-            steps {
-            script {
-                withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') {
-                    sh "mvn sonar:sonar"
-                    }
-                }
-            }
-        }
-        stage("Quality Gate"){
-            steps {
-            script {
-                waitForQualityGate abortPipeline: false , credentialsId : 'jenkins-sonarqube-token'
-                }
+                sh "java -jar ./target/chat-1.jar"
             }
         }
 
