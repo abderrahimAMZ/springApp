@@ -7,8 +7,8 @@ services:
     volumes:
       - mongo:/data
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=alibou
-      - MONGO_INITDB_ROOT_PASSWORD=alibou
+      - MONGO_INITDB_ROOT_USERNAME=amz
+      - MONGO_INITDB_ROOT_PASSWORD=amz
   mongo-express:
     image: mongo-express
     container_name: mongo_express
@@ -16,8 +16,8 @@ services:
     ports:
       - 8081:8081
     environment:
-      - ME_CONFIG_MONGODB_ADMINUSERNAME=alibou
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=alibou
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=amz
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=amz
       - ME_CONFIG_MONGODB_SERVER=mongodb
 volumes:
   mongo: {}

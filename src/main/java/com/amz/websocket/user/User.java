@@ -1,4 +1,4 @@
-package com.alibou.websocket.user;
+package com.amz.websocket.user;
 
 import lombok.Getter;
 import lombok.Setter;
