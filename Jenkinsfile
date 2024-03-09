@@ -36,7 +36,7 @@ pipeline{
         }
         stage("Run application"){
             steps {
-                sh "java -jar target/chat-1.jar"
+                sh "java -jar target/chat-1.jar &"
             }
         }
 
