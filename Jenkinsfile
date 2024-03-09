@@ -36,7 +36,8 @@ pipeline{
         }
         stage("Run application"){
             steps {
-                sh "java -jar target/your-artifact-name.jar"
+                dir("~/workspace/springApp")
+                sh "java -jar target/chat-1.jar"
             }
         }
         stage("SonarQube analysis"){
