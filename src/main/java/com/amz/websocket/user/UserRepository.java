@@ -1,4 +1,4 @@
-package com.alibou.websocket.user;
+package com.amz.websocket.user;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

@@ -1,4 +1,4 @@
-package com.alibou.websocket.chatroom;
+package com.amz.websocket.chatroom;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
