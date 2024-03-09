@@ -34,6 +34,11 @@ pipeline{
                 sh "mvn test"
                 }
         }
+        stage("Run application"){
+            steps {
+                sh "java -jar target/your-artifact-name.jar"
+            }
+        }
         stage("SonarQube analysis"){
             steps {
             script {
