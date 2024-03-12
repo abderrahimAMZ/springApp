@@ -35,7 +35,7 @@ pipeline{
         }
         stage("Run application"){
         steps {
-            sh "./start_app.sh"
+            sh "../start_app.sh"
         }
         }
     }
