@@ -35,7 +35,8 @@ pipeline{
         }
         stage("Run application"){
         script {
-            sh " # Identify the process
+            sh '''
+                # Identify the process
                  PID=$(lsof -t -i:8088)
 
                  # If a process is found, stop it
@@ -45,9 +46,9 @@ pipeline{
                  else
                      echo "No process is listening on port 8088"
                  fi"
-            sh "touch myapp.log"
-            sh "nohup java -jar target/myapp.jar > myapp.log & "
-
+                touch myapp.log
+                nohup java -jar target/myapp.jar > myapp.log &
+                '''
         }
         }
     }
