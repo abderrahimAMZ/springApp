@@ -33,5 +33,22 @@ pipeline{
                 sh "mvn test"
                 }
         }
+        stage("Run application"){
+        script {
+            sh " # Identify the process
+                 PID=$(lsof -t -i:8088)
+
+                 # If a process is found, stop it
+                 if [ -n "$PID" ]; then
+                     kill $PID
+                     echo "Stopped process with PID: $PID"
+                 else
+                     echo "No process is listening on port 8088"
+                 fi"
+            sh "touch myapp.log"
+            sh "nohup java -jar target/myapp.jar > myapp.log & "
+
+        }
+        }
     }
 }
