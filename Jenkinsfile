@@ -34,6 +34,7 @@ pipeline{
                 }
         }
         stage("Run application"){
+        steps {
         script {
             sh '''
                 # Identify the process
@@ -49,6 +50,7 @@ pipeline{
                 touch myapp.log
                 nohup java -jar target/myapp.jar > myapp.log &
                 '''
+        }
         }
         }
     }
