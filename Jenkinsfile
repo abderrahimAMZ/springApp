@@ -34,8 +34,12 @@ pipeline{
                 }
         }
         stage("Run application"){
+
         steps {
-            sh "../start_app.sh &"
+            script {
+            sh "cd .."
+            sh "./start_app.sh &"
+            }
         }
         }
 
