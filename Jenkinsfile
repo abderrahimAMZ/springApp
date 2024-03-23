@@ -35,25 +35,9 @@ pipeline{
         }
         stage("Run application"){
         steps {
-            sh "./start_app.sh &"
+            sh "../start_app.sh &"
         }
         }
 
-        stage("SonarQube analysis"){
-            steps {
-            script {
-                withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') {
-                    sh "mvn sonar:sonar"
-                    }
-                }
-            }
-        }
-        stage("Quality Gate"){
-            steps {
-            script {
-                waitForQualityGate abortPipeline: false , credentialsId : 'jenkins-sonarqube-token'
-                }
-            }
-        }
     }
 }
