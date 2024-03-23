@@ -37,8 +37,20 @@ pipeline{
 
         steps {
             script {
-            sh "cd .."
-            sh "./start_app.sh &"
+            sh """
+            PID=$(lsof -t -i:8088)
+            # If a process is found, stop it
+            if [ -n "$PID" ]; then
+                kill $PID
+                echo "Stopped process with PID: $PID"
+            else
+                echo "No process is listening on port 8088"
+            fi
+
+
+            # Run the application
+            ./mvnw spring-boot:run &
+            """
             }
         }
         }
