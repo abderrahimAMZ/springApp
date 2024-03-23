@@ -39,3 +39,4 @@ public class ChatController {
                 .ok(chatMessageService.findChatMessages(senderId, recipientId));
     }
 }
+

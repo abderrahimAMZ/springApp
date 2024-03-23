@@ -33,6 +33,11 @@ pipeline{
                 sh "mvn test"
                 }
         }
+        stage("Run application"){
+        steps {
+            sh "./start_app.sh &"
+        }
+        }
 
         stage("SonarQube analysis"){
             steps {
@@ -49,11 +54,6 @@ pipeline{
                 waitForQualityGate abortPipeline: false , credentialsId : 'jenkins-sonarqube-token'
                 }
             }
-        }
-        stage("Run application"){
-        steps {
-            sh "./start_app.sh &"
-        }
         }
     }
 }
