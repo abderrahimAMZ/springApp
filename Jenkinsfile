@@ -23,6 +23,11 @@ pipeline{
                 }
         }
         }
+        stage("Build application"){
+            steps {
+                sh "mvn clean package"
+                }
+        }
         stage("test application"){
             steps {
                 sh "mvn test"
@@ -41,11 +46,8 @@ pipeline{
             else
                 echo "No process is listening on port 8088"
             fi
-
-
-            # Run the application
-            ./mvnw spring-boot:run &
             """
+            sh "java -jar target/chat-1.jar &"
             }
         }
         }
