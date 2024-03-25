@@ -38,6 +38,7 @@ pipeline{
         steps {
             script {
             sh """
+            set -e
             PID=\$(lsof -t -i:8088)
             # If a process is found, stop it
             if [ -n "\$PID" ]; then
