@@ -47,7 +47,7 @@ pipeline{
                 echo "No process is listening on port 8088"
             fi
             """
-            sh "java -jar target/chat-1.jar &"
+            sh "./Deliver.sh"
             }
         }
         }
