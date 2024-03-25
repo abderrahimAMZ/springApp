@@ -39,7 +39,7 @@ pipeline{
             script {
             sh """
             set -e
-            PID=\$(lsof -t -i:8088)
+            PID=\$(lsof -t -i:8088) || true
             # If a process is found, stop it
             if [ -n "\$PID" ]; then
                 if kill -0 \$PID > /dev/null 2>&1; then
