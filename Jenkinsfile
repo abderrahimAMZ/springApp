@@ -41,8 +41,12 @@ pipeline{
             PID=\$(lsof -t -i:8088)
             # If a process is found, stop it
             if [ -n "\$PID" ]; then
-                kill \$PID
-                echo "Stopped process with PID: \$PID"
+                if kill -0 \$PID > /dev/null 2>&1; then
+                    kill \$PID
+                    echo "Stopped process with PID: \$PID"
+                else
+                    echo "No process with PID: \$PID found"
+                fi
             else
                 echo "No process is listening on port 8088"
             fi
