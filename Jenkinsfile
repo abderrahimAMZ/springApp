@@ -52,7 +52,7 @@ pipeline{
                 echo "No process is listening on port 8088"
             fi
             """
-            sh "./Deliver.sh &"
+            sh "nohup ./Deliver.sh &"
             }
         }
         }
